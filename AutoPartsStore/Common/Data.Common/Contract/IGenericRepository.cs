@@ -9,7 +9,7 @@ namespace Data.Common.Contract
 {
     public interface IGenericRepository<T> where T : class
     {
-        Task<T> GetSingleAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken);
+        Task<T?> GetSingleAsync(Expression<Func<T, bool>> predicate);
         IQueryable<T> Get();
         Task<T> AddAsync(T entity);
         Task<T> UpdateAsync(T entity);
