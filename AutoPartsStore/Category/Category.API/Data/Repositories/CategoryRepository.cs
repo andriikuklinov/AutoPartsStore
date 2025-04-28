@@ -10,5 +10,10 @@ namespace Category.API.Data.Repositories
         {
             _context = context;
         }
+
+        public async Task<IEnumerable<Entities.Category>> GetCategories(string filter, string orderBy, int? page, int? pageSize)
+        {
+            return await Get().Filter(filter).OrderBy(orderBy).Paginate(page, pageSize).ToListAsync<Entities.Category>();
+        }
     }
 }
