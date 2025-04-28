@@ -7,11 +7,11 @@ namespace Data.Common.Extensions
 {
     public static class FilterExtensions
     {
-        public static IQueryable<T> Filter<T, TFilterValue>(this IQueryable<T> query, string filter)
+        public static IQueryable<T> Filter<T>(this IQueryable<T> query, string filter)
         {
             if(filter != null || filter.ToString() != string.Empty)
             {
-                var filterData = JsonSerializer.Deserialize<FilterData<TFilterValue>>(filter, new JsonSerializerOptions()
+                var filterData = JsonSerializer.Deserialize<FilterData<string>>(filter, new JsonSerializerOptions()
                 {
                     PropertyNameCaseInsensitive=true,
                     NumberHandling=JsonNumberHandling.AllowReadingFromString
@@ -22,7 +22,7 @@ namespace Data.Common.Extensions
                 foreach(var filterModel in filterData.Data)
                 {
                     var property = Expression.Property(parameter, filterModel.PropertyName);
-                    var constant = Expression.Constant(filterModel.Value, typeof(TFilterValue));
+                    var constant = Expression.Constant(filterModel.Value, typeof(string));
                     Expression comparison = null;
                     if(property.Type == typeof(string))
                     {
