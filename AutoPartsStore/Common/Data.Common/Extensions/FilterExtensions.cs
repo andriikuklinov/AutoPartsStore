@@ -7,7 +7,7 @@ namespace Data.Common.Extensions
 {
     public static class FilterExtensions
     {
-        public static IQueryable<T> Filter<T>(this IQueryable<T> query, string filter)
+        public static IQueryable<T> Filter<T>(this IQueryable<T> query, string filter) where T : class
         {
             if(filter != null || filter.ToString() != string.Empty)
             {

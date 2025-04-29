@@ -11,7 +11,7 @@ namespace Data.Common.Extensions
 {
     public static class OrderExtensions
     {
-        public static IQueryable<T> OrderBy<T>(this IQueryable<T> query, string order)
+        public static IQueryable<T> OrderBy<T>(this IQueryable<T> query, string order) where T : class
         {
             if (!string.IsNullOrEmpty(order))
             {
