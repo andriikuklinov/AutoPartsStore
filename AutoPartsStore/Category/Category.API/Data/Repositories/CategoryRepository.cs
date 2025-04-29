@@ -1,6 +1,7 @@
 ﻿using Category.API.Data.Repositories.Contracts;
 using Data.Common;
 using Data.Common.Extensions;
+using Microsoft.EntityFrameworkCore;
 
 namespace Category.API.Data.Repositories
 {
@@ -12,7 +13,7 @@ namespace Category.API.Data.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<Entities.Category>> GetCategories(string filter, string orderBy, int? page, int? pageSize)
+        public async Task<IEnumerable<Entities.Category>> GetCategories(string filter, string orderBy, int page, int pageSize)
         {
             return await Get().Filter<Entities.Category>(filter).OrderBy<Entities.Category>(orderBy).Paginate(page, pageSize).ToListAsync<Entities.Category>();
         }
