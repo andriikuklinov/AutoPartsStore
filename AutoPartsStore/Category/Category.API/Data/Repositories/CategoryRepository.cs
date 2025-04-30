@@ -1,7 +1,5 @@
-﻿using Category.API.Data.Repositories.Contracts;
-using Data.Common;
+﻿using Data.Common;
 using Data.Common.Extensions;
-using Microsoft.EntityFrameworkCore;
 
 namespace Category.API.Data.Repositories
 {

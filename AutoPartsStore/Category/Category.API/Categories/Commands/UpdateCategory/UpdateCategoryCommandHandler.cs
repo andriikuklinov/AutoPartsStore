@@ -1,8 +1,4 @@
-﻿using AutoMapper;
-using Category.API.Data.Repositories.Contracts;
-using Common.CQRS;
-
-namespace Category.API.Categories.Commands.UpdateCategory
+﻿namespace Category.API.Categories.Commands.UpdateCategory
 {
     class UpdateCategoryCommandHandler : ICommandHandler<UpdateCategoryCommand, UpdateCategoryResult>
     {

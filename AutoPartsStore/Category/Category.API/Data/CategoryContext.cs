@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace Category.API.Data
+﻿namespace Category.API.Data
 {
     public class CategoryContext : DbContext
     {

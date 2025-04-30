@@ -1,6 +1,4 @@
-﻿using Common.CQRS;
-
-namespace Category.API.Categories.Queries.GetCategories
+﻿namespace Category.API.Categories.Queries.GetCategories
 {
     class GetCategoriesQuery: IQuery<GetCategoriesResult>
     {

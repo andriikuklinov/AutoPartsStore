@@ -1,8 +1,4 @@
-﻿using AutoMapper;
-using Category.API.Data.Repositories.Contracts;
-using Common.CQRS;
-
-namespace Category.API.Categories.Commands.CreateCategory
+﻿namespace Category.API.Categories.Commands.CreateCategory
 {
     class CreateCategoryCommandHandler : ICommandHandler<CreateCategoryCommand, CreateCategoryResult>
     {

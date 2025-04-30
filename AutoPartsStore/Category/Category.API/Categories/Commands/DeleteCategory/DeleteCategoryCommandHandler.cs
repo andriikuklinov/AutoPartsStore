@@ -1,8 +1,4 @@
-﻿using AutoMapper;
-using Category.API.Data.Repositories.Contracts;
-using Common.CQRS;
-
-namespace Category.API.Categories.Commands.DeleteCategory
+﻿namespace Category.API.Categories.Commands.DeleteCategory
 {
     class DeleteCategoryCommandHandler : ICommandHandler<DeleteCategoryCommand, DeleteCategoryResult>
     {
