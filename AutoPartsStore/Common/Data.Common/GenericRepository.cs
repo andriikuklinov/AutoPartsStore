@@ -50,7 +50,7 @@ namespace Data.Common
             //return entity;
             var resultEntity = _context.Remove(entity);
             await _context.SaveChangesAsync();
-            return resultEntity;
+            return resultEntity.Entity;
         }
 
         public async Task<IEnumerable<T>> DeleteRangeAsync(IEnumerable<T> entities)
