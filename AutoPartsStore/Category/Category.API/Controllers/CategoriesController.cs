@@ -1,7 +1,9 @@
 ﻿using Category.API.Categories.Commands.CreateCategory;
+using Category.API.Categories.Commands.DeleteCategory;
 using Category.API.Categories.Commands.UpdateCategory;
 using Category.API.Categories.Queries.GetAllCategories;
 using Category.API.Models.CreateCategory;
+using Category.API.Models.DeleteCategory;
 using Category.API.Models.GetAllCategories;
 using Category.API.Models.UpdateCategory;
 using Microsoft.AspNetCore.Mvc;
@@ -52,6 +54,15 @@ namespace Category.API.Controllers
             var command = _mapper.Map<UpdateCategoryCommand>(request);
             var result = await _sender.Send(command);
             var response = _mapper.Map<UpdateCategoryResponse>(result);
+
+            return Results.Ok(response);
+        }
+        [HttpDelete]
+        public async Task<IResult> DeleteCategory([FromBody]DeleteCategoryRequest request)
+        {
+            var command = _mapper.Map<DeleteCategoryCommand>(request);
+            var result = await _sender.Send(command);
+            var response = _mapper.Map<DeleteCategoryResponse>(result);
 
             return Results.Ok(response);
         }
