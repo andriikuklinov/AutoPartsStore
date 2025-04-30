@@ -43,11 +43,14 @@ namespace Data.Common
         }
         public async Task<T> DeleteAsync(T entity)
         {
-            var entryEntity = _context.Attach(entity);
-            entryEntity.State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+            //var entryEntity = _context.Remove().Attach(entity);
+            //entryEntity.State = EntityState.Deleted;
+            //await _context.SaveChangesAsync();
 
-            return entity;
+            //return entity;
+            var resultEntity = _context.Remove(entity);
+            await _context.SaveChangesAsync();
+            return resultEntity;
         }
 
         public async Task<IEnumerable<T>> DeleteRangeAsync(IEnumerable<T> entities)
