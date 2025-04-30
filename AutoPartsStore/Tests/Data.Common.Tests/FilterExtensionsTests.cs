@@ -15,11 +15,11 @@ namespace Data.Common.Tests
             _products = new List<Product>
             {
                 new Product{ Id = 1, Name = "Accumulator", Price = 123.5M },
-                new Product{ Id = 1, Name = "Accumulator 2", Price = 127.2M },
-                new Product{ Id = 1, Name = "Accumulator_M2BS", Price = 103.15M },
-                new Product{ Id = 1, Name = "Tire 1", Price = 211.25M },
-                new Product{ Id = 1, Name = "Tire 1", Price = 123 },
-                new Product{ Id = 1, Name = "Tire ", Price = 78.89M },
+                new Product{ Id = 2, Name = "Accumulator 2", Price = 127.2M },
+                new Product{ Id = 3, Name = "Accumulator_M2BS", Price = 103.15M },
+                new Product{ Id = 4, Name = "Tire 1", Price = 211.25M },
+                new Product{ Id = 5, Name = "Tire 1", Price = 123 },
+                new Product{ Id = 6, Name = "Tire ", Price = 78.89M },
             };
         }
 
