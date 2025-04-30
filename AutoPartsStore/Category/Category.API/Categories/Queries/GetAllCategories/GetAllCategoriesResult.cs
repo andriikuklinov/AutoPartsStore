@@ -1,6 +1,4 @@
-﻿using Category.API.Data.Entities;
-
-namespace Category.API.Categories.Queries.GetAllCategories
+﻿namespace Category.API.Categories.Queries.GetAllCategories
 {
     class GetAllCategoriesResult
     {

@@ -1,12 +1,13 @@
 ﻿using Category.API.Data.Repositories.Contracts;
+using Common.CQRS;
 
 namespace Category.API.Categories.Queries.GetAllCategories
 {
-    class GetAllCategoriesHandler: IQueryHandler<GetAllCategoriesQuery, GetAllCategoriesResult>
+    class GetAllCategoriesQueryHandler: IQueryHandler<GetAllCategoriesQuery, GetAllCategoriesResult>
     {
         private readonly ICategoryRepository _categoryRepository;
 
-        public GetAllCategoriesHandler(ICategoryRepository categoryRepository)
+        public GetAllCategoriesQueryHandler(ICategoryRepository categoryRepository)
         {
             _categoryRepository = categoryRepository;
         }
