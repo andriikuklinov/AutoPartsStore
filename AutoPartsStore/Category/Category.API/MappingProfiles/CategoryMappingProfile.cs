@@ -1,4 +1,7 @@
-﻿namespace Category.API.MappingProfiles
+﻿using Category.API.Categories.Queries.GetAllCategories;
+using Category.API.Models.GetAllCategories;
+
+namespace Category.API.MappingProfiles
 {
     public class CategoryMappingProfile: Profile
     {
@@ -6,6 +9,9 @@
         {
             CreateMap<GetCategoriesRequest, GetCategoriesQuery>();
             CreateMap<GetCategoriesResult, GetCategoriesResponse>();
+
+            CreateMap<GetAllCategoriesRequest, GetAllCategoriesQuery>();
+            CreateMap<GetAllCategoriesResult, GetAllCategoriesResponse>();
         }
     }
 }

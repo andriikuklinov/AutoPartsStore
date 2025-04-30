@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Category.API.Categories.Queries.GetAllCategories;
+using Category.API.Models.GetAllCategories;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Category.API.Controllers
 {
@@ -19,6 +21,15 @@ namespace Category.API.Controllers
             var query = _mapper.Map<GetCategoriesQuery>(request);
             var result = await _sender.Send(query);
             var response = _mapper.Map<GetCategoriesResponse>(result);
+
+            return Results.Ok(response);
+        }
+        [HttpGet("/getAllCategories")]
+        public async Task<IResult> GetAllCategories()
+        {
+            var query = new GetAllCategoriesQuery();
+            var result = await _sender.Send(query);
+            var response = _mapper.Map<GetAllCategoriesResponse>(result);
 
             return Results.Ok(response);
         }
