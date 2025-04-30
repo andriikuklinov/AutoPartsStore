@@ -1,4 +1,6 @@
-﻿using Category.API.Categories.Queries.GetAllCategories;
+﻿using Category.API.Categories.Commands.CreateCategory;
+using Category.API.Categories.Queries.GetAllCategories;
+using Category.API.Models.CreateCategory;
 using Category.API.Models.GetAllCategories;
 
 namespace Category.API.MappingProfiles
@@ -12,6 +14,9 @@ namespace Category.API.MappingProfiles
 
             CreateMap<GetAllCategoriesRequest, GetAllCategoriesQuery>();
             CreateMap<GetAllCategoriesResult, GetAllCategoriesResponse>();
+
+            CreateMap<CreateCategoryRequest, CreateCategoryCommand>();
+            CreateMap<CreateCategoryResult, CreateCategoryResponse>();
         }
     }
 }
