@@ -23,7 +23,7 @@ namespace Data.Common.Extensions
                     if(filterData.Data==null)
                         throw new ArgumentException("Parameter filter is invalid (contain wrong json).", nameof(filter));
                 }
-                catch (JsonException ex)
+                catch (Exception ex)
                 {
                     throw new ArgumentException("Parameter filter is invalid (contain wrong json).", nameof(filter), ex);
                 }
