@@ -1,6 +1,10 @@
 using Category.API.Data;
 using Category.API.Data.Repositories;
 using Category.API.MappingProfiles;
+using Common.Exceptions.Handlers;
+using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,11 +36,20 @@ builder.Services.AddDbContext<CategoryContext>(options =>
     });
 });
 #endregion
+#region MediatR
+builder.Services.AddMediatR(config =>
+{
+    config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+});
+#endregion
+#region Exception handling
+builder.Services.AddExceptionHandler<CustomExceptionsHandler>();
+#endregion
+#region Healthcheck
+builder.Services.AddHealthChecks()
+    .AddSqlServer(builder.Configuration.GetConnectionString("CategoryDatabase"));
+#endregion
 var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-
-app.UseAuthorization();
 
 app.MapControllers();
 
