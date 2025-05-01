@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Common.Exceptions.Handlers
 {
-    class CustomExceptionsHandler : IExceptionHandler
+    public class CustomExceptionsHandler : IExceptionHandler
     {
         private readonly ILogger<CustomExceptionsHandler> _logger;
 
