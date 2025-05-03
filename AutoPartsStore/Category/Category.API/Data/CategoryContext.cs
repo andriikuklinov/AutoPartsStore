@@ -12,9 +12,9 @@
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Category.API.Data.Entities.Category>().HasData(
-                new Category.API.Data.Entities.Category() { Name="Tires" },
-                new Category.API.Data.Entities.Category() { Name="Oil" },
-                new Category.API.Data.Entities.Category() { Name="Accumulators" }
+                new Category.API.Data.Entities.Category() { Id=1, Name="Tires" },
+                new Category.API.Data.Entities.Category() { Id=2, Name="Oil" },
+                new Category.API.Data.Entities.Category() { Id=3, Name="Accumulators" }
             );
         }
 
