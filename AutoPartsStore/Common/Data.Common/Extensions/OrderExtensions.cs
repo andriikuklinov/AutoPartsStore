@@ -14,7 +14,7 @@ namespace Data.Common.Extensions
         public static IQueryable<T> OrderBy<T>(this IQueryable<T> query, string order) where T : class
         {
             if (string.IsNullOrEmpty(order))
-                throw new ArgumentException("Parameter order is null or empty", nameof(order));
+                return query;
             var orderData = new OrderData();
             try
             {

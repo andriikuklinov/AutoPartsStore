@@ -10,7 +10,7 @@ namespace Data.Common.Extensions
     {
         public static IQueryable<T> Filter<T>(this IQueryable<T> query, string filter) where T : class
         {
-            if (filter != null || filter.ToString() != string.Empty)
+            if (filter != null && filter != string.Empty)
             {
                 var filterData=new FilterData<string>();
                 try
