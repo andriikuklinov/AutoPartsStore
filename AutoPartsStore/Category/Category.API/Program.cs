@@ -2,6 +2,7 @@ using Category.API.Data;
 using Category.API.Data.Repositories;
 using Category.API.MappingProfiles;
 using Common.Exceptions.Handlers;
+using Common.Extensions;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using System.Reflection;
@@ -50,7 +51,7 @@ builder.Services.AddHealthChecks()
     .AddSqlServer(builder.Configuration.GetConnectionString("CategoryDatabase"));
 #endregion
 var app = builder.Build();
-
+app.UseMigration<CategoryContext>();
 app.MapControllers();
 
 app.Run();
