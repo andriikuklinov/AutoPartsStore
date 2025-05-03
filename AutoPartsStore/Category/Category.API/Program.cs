@@ -54,5 +54,6 @@ var app = builder.Build();
 
 app.UseMigration<CategoryContext>();
 app.MapControllers();
+app.UseExceptionHandler(options => { });
 
 app.Run();
