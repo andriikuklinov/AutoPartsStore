@@ -51,6 +51,7 @@ builder.Services.AddHealthChecks()
     .AddSqlServer(builder.Configuration.GetConnectionString("CategoryDatabase"));
 #endregion
 var app = builder.Build();
+
 app.UseMigration<CategoryContext>();
 app.MapControllers();
 
