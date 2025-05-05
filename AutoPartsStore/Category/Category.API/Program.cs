@@ -1,5 +1,6 @@
 using Category.API.Categories.Commands.CreateCategory;
 using Category.API.Categories.Commands.DeleteCategory;
+using Category.API.Categories.Commands.UpdateCategory;
 using Category.API.Data;
 using Category.API.Data.Repositories;
 using Category.API.MappingProfiles;
@@ -26,6 +27,7 @@ builder.Services.Configure<RouteOptions>(config =>
 #region Dependencies
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IValidator<CreateCategoryCommand>, CreateCategoryCommandValidator>();
+builder.Services.AddScoped<IValidator<UpdateCategoryCommand>, UpdateCategoryCommandValidator>();
 builder.Services.AddScoped<IValidator<DeleteCategoryCommand>, DeleteCategoryCommandValidator>();
 #endregion
 #region Automapper
