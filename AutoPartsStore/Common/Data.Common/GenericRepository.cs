@@ -63,7 +63,7 @@ namespace Data.Common
 
         public IQueryable<T> Get()
         {
-            return _context.Set<T>().AsQueryable<T>();
+            return _context.Set<T>().AsNoTracking<T>().AsQueryable<T>();
         }
 
         public async Task<T?> GetSingleAsync(Expression<Func<T, bool>> predicate)
