@@ -1,8 +1,11 @@
+using Category.API.Categories.Commands.CreateCategory;
 using Category.API.Data;
 using Category.API.Data.Repositories;
 using Category.API.MappingProfiles;
+using Common.Behaviour;
 using Common.Exceptions.Handlers;
 using Common.Extensions;
+using FluentValidation;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using System.Reflection;
@@ -21,6 +24,7 @@ builder.Services.Configure<RouteOptions>(config =>
 #endregion
 #region Dependencies
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IValidator<CreateCategoryCommand>, CreateCategoryCommandValidator>();
 #endregion
 #region Automapper
 builder.Services.AddAutoMapper(config =>
@@ -41,6 +45,7 @@ builder.Services.AddDbContext<CategoryContext>(options =>
 builder.Services.AddMediatR(config =>
 {
     config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+    config.AddOpenBehavior(typeof(ValidationBehaviour<,>));
 });
 #endregion
 #region Exception handling
