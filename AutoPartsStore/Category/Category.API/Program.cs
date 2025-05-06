@@ -10,6 +10,8 @@ using Common.Extensions;
 using FluentValidation;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.Extensions.DependencyInjection;
+using Serilog;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -59,10 +61,14 @@ builder.Services.AddExceptionHandler<CustomExceptionsHandler>();
 builder.Services.AddHealthChecks()
     .AddSqlServer(builder.Configuration.GetConnectionString("CategoryDatabase"));
 #endregion
+#region Logger
+builder.Services.AddSerilog();
+#endregion
 var app = builder.Build();
 
 app.UseMigration<CategoryContext>();
 app.MapControllers();
+app.UseLogger(Assembly.GetExecutingAssembly().FullName);
 app.UseExceptionHandler(options => { });
 app.UseHealthChecks("/health", new HealthCheckOptions
 {
