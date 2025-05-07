@@ -11,6 +11,11 @@ namespace Products.API.Data
         public DbSet<Characteristic> Characteristics { get; set; }
         public DbSet<ProductCharacteristic> ProductsCharacteristics { get; set; }
 
+        public ProductContext(DbContextOptions options):base(options)
+        {
+            
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration<ProductCharacteristic>(new ProductCharacteristicConfiguration());
