@@ -19,10 +19,8 @@ namespace Products.API.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration<ProductCharacteristic>(new ProductCharacteristicConfiguration());
-
-            modelBuilder.Entity<Product>().HasData(ProductInitializer.GetProducts());
-            modelBuilder.Entity<Characteristic>().HasData(CharacteristicInitializer.GetCharacteristics());
-            modelBuilder.Entity<ProductCharacteristic>().HasData(ProductCharacteristicsInitializer.GetProductCharacteristics());
+            modelBuilder.ApplyConfiguration<Product>(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration<Characteristic>(new CharacteristicConfiguration());
         }
     }
 }

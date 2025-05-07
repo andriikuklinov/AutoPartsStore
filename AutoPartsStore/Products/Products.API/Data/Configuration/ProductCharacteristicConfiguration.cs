@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Products.API.Data.Entities;
+using Products.API.Data.Initialization;
 using System.Reflection.Emit;
 
 namespace Products.API.Data.Configuration
@@ -16,6 +17,8 @@ namespace Products.API.Data.Configuration
             builder.HasOne(pc => pc.Characteristic)
                 .WithMany(characteristic => characteristic.ProductCharacteristics)
                 .HasForeignKey(pc => pc.CharacteristicId);
+
+            builder.HasData(ProductCharacteristicsInitializer.GetProductCharacteristics());
         }
     }
 }
